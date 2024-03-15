@@ -1,11 +1,11 @@
 package iut.outili.profTrackerAPI;
 
-public class Prof {
+public class Professeur {
     String nom;
     String prenom;
     String mail;
 
-    public Prof(String nom, String prenom, String mail) {
+    public Professeur(String nom, String prenom, String mail) {
         this.nom = nom;
         this.prenom = prenom;
         this.mail = mail;

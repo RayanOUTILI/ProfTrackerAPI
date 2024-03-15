@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+androidfilrouge-firebase-secretdata.json
+
+# la version de java est la 17 (moi 19) pour github actions - évite de modifier à chaque fois 
+pom.xml
