@@ -48,6 +48,13 @@ public class ProfRestController {
         return Mono.just(result);
     }
 
+    // error
+    @GetMapping("/error")
+    public Mono<String> error() {
+        return Mono.error(new Exception("Erreur"));
+    }
+
+
     // @GetMapping("/listerprofs")
     public Mono<String[]> getProfs() {
 
