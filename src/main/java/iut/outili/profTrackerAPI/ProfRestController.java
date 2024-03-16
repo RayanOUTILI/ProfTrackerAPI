@@ -42,12 +42,13 @@ public class ProfRestController {
     }
 
     // tester connexion firebase
-    @GetMapping("/test")
-    public void test() {
-        FirebaseInitializer.displayProf();
+    @GetMapping("/listerprofs")
+    public Mono<String[]> test() {
+        String[] result = FirebaseInitializer.displayProf();
+        return Mono.just(result);
     }
 
-    @GetMapping("/listerprofs")
+    // @GetMapping("/listerprofs")
     public Mono<String[]> getProfs() {
 
         if (!isFirebaseInitilised) {
