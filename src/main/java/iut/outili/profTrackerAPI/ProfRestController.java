@@ -49,7 +49,7 @@ public class ProfRestController {
     }
 
     // error
-    @GetMapping("/error")
+    @GetMapping("/test")
     public Mono<String> error() {
         // on retourne un string "salut"
         String salut = "salut";
