@@ -55,7 +55,7 @@ public class ProfRestController {
     public Mono<String[]> getJson(){
         List<String> profs = new ArrayList<>();
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("professeurs.json"));
+            BufferedReader reader = new BufferedReader(new FileReader("./professeurs.json"));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -68,6 +68,26 @@ public class ProfRestController {
         }
         return Mono.just(profs.toArray(new String[0]));
     }
+
+    //on renvoie cette fois directement le fichier json 
+    @GetMapping("/jsonfile")
+    public Mono<String> getJsonFile(){
+        String json = "";
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("./professeurs.json"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                json += line;
+            }
+            reader.close();
+        }
+        catch (Exception e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        return Mono.just(json);
+    }
+
     /* @GetMapping("/listerprofs")
     public Mono<String[]> getProfs() {
 
