@@ -1,5 +1,7 @@
 package iut.outili.profTrackerAPI;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -31,33 +33,42 @@ import java.util.List;
 @RestController
 public class ProfRestController {
 
-    Boolean isFirebaseInitilised = false;
+    /*Boolean isFirebaseInitilised = false;
     DatabaseReference professeursRef;
-    Firestore db;
+    Firestore db;*/
 
-    public void initFirebase() {
+    /*public void initFirebase() {
         FirebaseInitializer.initialize();
         isFirebaseInitilised = true;
         professeursRef = FirebaseDatabase.getInstance().getReference("professeurs");
-    }
+    }*/
 
     // tester connexion firebase
-    @GetMapping("/listerprofs")
+    //@GetMapping("/listerprofs")
+    /*
     public Mono<String[]> test() {
         String[] result = FirebaseInitializer.displayProf();
         return Mono.just(result);
+    }*/
+
+    @GetMapping("/json")
+    public Mono<String[]> getJson(){
+        List<String> profs = new ArrayList<>();
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("professeurs.json"));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                profs.add(line);
+            }
+            reader.close();
+        }
+        catch (Exception e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        return Mono.just(profs.toArray(new String[0]));
     }
-
-    // error
-    @GetMapping("/test")
-    public Mono<String> error() {
-        // on retourne un string "salut"
-        String salut = "salut";
-        return Mono.just(salut);
-    }
-
-
-    // @GetMapping("/listerprofs")
+    /* @GetMapping("/listerprofs")
     public Mono<String[]> getProfs() {
 
         if (!isFirebaseInitilised) {
@@ -92,5 +103,5 @@ public class ProfRestController {
             });
 
         });
-    }
+    }*/
 }
