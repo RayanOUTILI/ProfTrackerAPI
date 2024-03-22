@@ -1,0 +1,23 @@
+[
+  {
+    "Age": 52,
+    "Localisation": "43.7045,7.259699444444444",
+    "Mail": "Doe.john@gmail.com",
+    "Nom": "Doe",
+    "Prenom": "John"
+  },
+  {
+    "Age": 20,
+    "Localisation": "43.62810719773932,7.095095031986358",
+    "Mail": "matthieu.griffonnet1@gmail.com",
+    "Nom": "Griffonnet",
+    "Prenom": "matthieu"
+  },
+  {
+    "Age": 19,
+    "Localisation": "43.6628622,7.145744722222223",
+    "Mail": "outili.rayan@gmail.com",
+    "Nom": "Outili",
+    "Prenom": "Rayan"
+  }
+]
